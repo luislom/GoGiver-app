@@ -1,7 +1,7 @@
-# 🩸 SangreSolidaria - Plataforma de Donación de Sangre  
+# 🩸 GoGiver - Plataforma de Donación de Sangre  
 
 ## 📌 Descripción del Proyecto  
-**SangreSolidaria** es una aplicación móvil diseñada para facilitar la donación de sangre y hemocomponentes, optimizando la conexión entre donantes y pacientes en situaciones de emergencia en **Barranquilla y su área metropolitana**.  
+**GoGiver** es una aplicación móvil diseñada para facilitar la donación de sangre y hemocomponentes, optimizando la conexión entre donantes y pacientes en situaciones de emergencia en **Barranquilla y su área metropolitana**.  
 
 Este proyecto utiliza tecnologías modernas para garantizar un sistema rápido, seguro y eficiente:  
 - **Backend:** FastAPI  
