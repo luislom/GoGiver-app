@@ -1,7 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from uuid import uuid4
 from models import UserModel, UserUpdateModel, AppointmentModel, AlertModel, DonationModel, HospitalModel, NotificationModel
-from datetime import datetime
 from bson import ObjectId
 from fastapi import HTTPException
 
@@ -12,7 +11,7 @@ uri = "mongodb+srv://luisenriquelozanomejia:GogiverApp365@cluster0.tf6qc4g.mongo
 client = AsyncIOMotorClient(uri)
 
 # Conectar a la base de datos
-db = client["GoGiver_prototype"]  # Puedes usar otro nombre si quieres
+db = client["GoGiver_prototype"]
 
 # Definir las colecciones como variables globales
 users_collection = db["users"]

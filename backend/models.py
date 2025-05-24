@@ -12,6 +12,11 @@ from pydantic import GetCoreSchemaHandler
 from pydantic_core import core_schema
 from typing import Any
 
+# Custom ObjectId type for Pydantic
+# This is a custom type for MongoDB ObjectId
+# It allows us to use ObjectId in our Pydantic models
+# and automatically handle serialization/deserialization
+# It also provides validation for ObjectId format
 class PyObjectId(str):
     @classmethod
     def __get_pydantic_core_schema__(
@@ -40,7 +45,7 @@ class PyObjectId(str):
 
 
 
-# Modelo de Usuario
+# User model
 class UserModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")  # Hacer que el campo sea opcional
     full_name: str 
@@ -59,7 +64,7 @@ class UserModel(BaseModel):
             ObjectId: str
         }
 
-# Modelo de Usuario para actualizar
+# Update model for User
 class UserUpdateModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
     full_name: Optional[str] = None
@@ -80,7 +85,7 @@ class UserUpdateModel(BaseModel):
 
 # Modelos para otras colecciones
 
-
+# Appointment model
 class AppointmentModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
     user_id: str 
@@ -95,6 +100,7 @@ class AppointmentModel(BaseModel):
         "json_encoders": {ObjectId: str}
     }
 
+#appointment update model
 class AppointmentUpdateModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
     user_id: Optional[str] = None
@@ -110,7 +116,7 @@ class AppointmentUpdateModel(BaseModel):
     }
 
 
-
+# Alert model
 class AlertModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
     blood_type: Optional[Literal["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]] = None
@@ -126,6 +132,7 @@ class AlertModel(BaseModel):
         "json_encoders": {ObjectId: str}
     }
 
+# Donation model
 class DonationModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
     user_id: Optional[str] = None
@@ -139,6 +146,7 @@ class DonationModel(BaseModel):
         "json_encoders": {ObjectId: str}
     }
 
+# Hospital model
 class HospitalModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
     name: str = None
@@ -153,6 +161,7 @@ class HospitalModel(BaseModel):
         "json_encoders": {ObjectId: str}
     }
 
+# Notification model
 class NotificationModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=ObjectId, alias="_id")
     user_id: Optional[str] = None
